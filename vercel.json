@@ -1,0 +1,15 @@
+{
+    "builds":[
+        {
+            "src":"feedsanity/main.py",
+            "use":"@vercel/python3.10.0"
+
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"feedsanity/main.py"
+        }
+    ]
+}
