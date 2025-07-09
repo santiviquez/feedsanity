@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FeedSanity - RSS Validator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FeedSanity</h1>
+        <form action="/validate" method="post">
+            <label for="feed_url">RSS Feed URL:</label>
+            <input type="url" id="feed_url" name="feed_url" required placeholder="https://example.com/feed.xml">
+            <button type="submit">Validate Feed</button>
+        </form>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FeedSanity - Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FeedSanity Results</h1>
+        <a href="/">&larr; Back to Home</a>
+        
+        <h2>Data Quality Checks</h2>
+        {% if checks %}
+        <div class="checks-summary">
+            {% for check in checks %}
+            <div class="check-item {{ check.status }}">
+                <span class="status-icon">
+                    {% if check.status == 'passed' %}✓{% else %}✗{% endif %}
+                </span>
+                <span class="check-name">{{ check.name }}</span>
+                <span class="status-label">{{ check.status.upper() }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No check results available.</p>
+        {% endif %}
+        
+        <h2>Feed Entries ({{ entries|length }} entries)</h2>
+        {% if entries %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Summary</th>
+                    <th>Published</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.title }}</td>
+                    <td>{{ entry.summary }}</td>
+                    <td>{{ entry.published }}</td>
+                    <td><a href="{{ entry.link }}" target="_blank">View</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No entries found.</p>
+        {% endif %}
+        
+        <h2>Soda Core Validation Log</h2>
+        <pre class="log">{{ log }}</pre>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,11 @@
+checks for feed:
+  - row_count > 0
+  - missing_count(title) = 0:
+      missing values: ['<hr />', 'none', '']
+  - missing_count(summary) = 0:
+      missing values: ['<hr />', 'none', '']
+  - missing_count(published) = 0:
+      missing values: ['<hr />', 'none', '']
+  - missing_count(link) = 0:
+      missing values: ['<hr />', 'none', '']
+  - duplicate_count(title) = 0
