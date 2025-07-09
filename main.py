@@ -84,12 +84,6 @@ def validate(request: Request, feed_url: str = Form(...)):
         scan.set_data_source_name("pandas")
         scan.add_pandas_dataframe(dataset_name="feed", pandas_df=df.head(3), data_source_name="pandas")
         scan.add_sodacl_yaml_file(SODA_CHECKS_YML)
-        # scan.set_verbose(True)
-        # row_count_checks = """
-        # checks for feed:
-        #   - row_count > 0
-        # """
-        # scan.add_sodacl_yaml_str(row_count_checks)
         scan.execute()
         log = scan.get_logs_text()
         checks = parse_soda_output(log)
@@ -102,4 +96,4 @@ def validate(request: Request, feed_url: str = Form(...)):
         "entries": df.to_dict(orient="records")[:3],  # Only show last 3 entries
         "log": log,
         "checks": checks
-    }) 
+    })
