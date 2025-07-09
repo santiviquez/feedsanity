@@ -33,7 +33,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Summary</th>
+                    <th class="summary-cell">Summary</th>
                     <th>Published</th>
                     <th>Link</th>
                 </tr>
@@ -42,7 +42,7 @@
             {% for entry in entries %}
                 <tr>
                     <td>{{ entry.title }}</td>
-                    <td>{{ entry.summary }}</td>
+                    <td class="summary-cell">{{ entry.summary }}</td>
                     <td>{{ entry.published }}</td>
                     <td><a href="{{ entry.link }}" target="_blank">View</a></td>
                 </tr>

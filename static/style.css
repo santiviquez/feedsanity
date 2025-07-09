@@ -116,4 +116,9 @@ a:hover {
 .check-item.failed .status-label {
     background: #ef4444;
     color: white;
+}
+.summary-cell {
+    max-width: 300px;
+    overflow-x: auto;
+    white-space: nowrap;
 } 
