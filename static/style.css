@@ -42,6 +42,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
+    table-layout: fixed;
 }
 th, td {
     border: 1px solid #e1e1e1;
@@ -79,11 +80,11 @@ a:hover {
     border-radius: 6px;
     border-left: 4px solid;
 }
-.check-item.passed {
+.check-item.pass {
     background: #f0f9ff;
     border-left-color: #10b981;
 }
-.check-item.failed {
+.check-item.fail {
     background: #fef2f2;
     border-left-color: #ef4444;
 }
@@ -92,10 +93,10 @@ a:hover {
     margin-right: 0.75rem;
     font-weight: bold;
 }
-.check-item.passed .status-icon {
+.check-item.pass .status-icon {
     color: #10b981;
 }
-.check-item.failed .status-icon {
+.check-item.fail .status-icon {
     color: #ef4444;
 }
 .check-name {
@@ -109,11 +110,11 @@ a:hover {
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
 }
-.check-item.passed .status-label {
+.check-item.pass .status-label {
     background: #10b981;
     color: white;
 }
-.check-item.failed .status-label {
+.check-item.fail .status-label {
     background: #ef4444;
     color: white;
 }
@@ -121,4 +122,33 @@ a:hover {
     max-width: 300px;
     overflow-x: auto;
     white-space: nowrap;
+}
+.project-description {
+    margin: 2rem auto;
+    max-width: 700px;
+    background: #f5f7fa;
+    border-radius: 6px;
+    padding: 2rem;
+    font-size: 1.05em;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.project-description a {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+.scrollable-tbody {
+    display: block;
+    max-height: 7.5em;
+    overflow-y: auto;
+}
+.scrollable-tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+table thead, table tbody tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
 } 

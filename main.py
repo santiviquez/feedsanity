@@ -22,6 +22,8 @@ def parse_soda_output(output):
     """Parse Soda Core output to extract check statuses"""
     checks = []
     lines = output.split('\n')
+    print('LINESSSSSS')
+    print(lines)
     
     for line in lines:
         # Look for check results
@@ -75,25 +77,26 @@ def validate(request: Request, feed_url: str = Form(...)):
         for e in entries
     ])
 
-    print(df[['summary']].head(3))
     # Run Soda Core in-process
     try:
         from soda.scan import Scan
         scan = Scan()
         scan.set_scan_definition_name("rss_feed_scan")
         scan.set_data_source_name("pandas")
-        scan.add_pandas_dataframe(dataset_name="feed", pandas_df=df.head(3), data_source_name="pandas")
+        scan.add_pandas_dataframe(dataset_name="feed", pandas_df=df, data_source_name="pandas")
         scan.add_sodacl_yaml_file(SODA_CHECKS_YML)
         scan.execute()
         log = scan.get_logs_text()
-        checks = parse_soda_output(log)
+        scan_results = scan.get_scan_results()
+        checks = scan_results.get("checks", [])
+        parsed = [{"check_name": check["name"], "status": check["outcome"], "value": check["diagnostics"]["value"]} for check in checks]
     except Exception as e:
         log = f"Error running Soda Core: {e}"
         checks = []
     # Render results
     return templates.TemplateResponse("results.html", {
         "request": request,
-        "entries": df.to_dict(orient="records")[:3],  # Only show last 3 entries
+        "entries": df.to_dict(orient="records"),
         "log": log,
-        "checks": checks
+        "checks": parsed
     })

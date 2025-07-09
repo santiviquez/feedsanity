@@ -10,23 +10,6 @@
         <h1>FeedSanity Results</h1>
         <a href="/">&larr; Back to Home</a>
         
-        <h2>Data Quality Checks</h2>
-        {% if checks %}
-        <div class="checks-summary">
-            {% for check in checks %}
-            <div class="check-item {{ check.status }}">
-                <span class="status-icon">
-                    {% if check.status == 'passed' %}✓{% else %}✗{% endif %}
-                </span>
-                <span class="check-name">{{ check.name }}</span>
-                <span class="status-label">{{ check.status.upper() }}</span>
-            </div>
-            {% endfor %}
-        </div>
-        {% else %}
-        <p>No check results available.</p>
-        {% endif %}
-        
         <h2>Feed Entries ({{ entries|length }} entries)</h2>
         {% if entries %}
         <table>
@@ -38,7 +21,7 @@
                     <th>Link</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="scrollable-tbody">
             {% for entry in entries %}
                 <tr>
                     <td>{{ entry.title }}</td>
@@ -53,8 +36,41 @@
         <p>No entries found.</p>
         {% endif %}
         
+        <h2>Data Quality Checks</h2>
+        {% if checks %}
+        <div class="checks-summary">
+            {% for check in checks %}
+            <div class="check-item {{ check.status }}">
+                <span class="status-icon">
+                    {% if check.status == 'pass' %}✓{% else %}✗{% endif %}
+                </span>
+                <span class="check-name">{{ check.check_name }}</span>
+                <span class="check-name">check_value: {{ check.value }}</span>
+                <span class="status-label">{{ check.status.upper() }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No check results available.</p>
+        {% endif %}
+        
         <h2>Soda Core Validation Log</h2>
         <pre class="log">{{ log }}</pre>
+    </div>
+    <div class="project-description">
+        <p><strong>FeedSanity</strong> is a minimal, educational RSS reader with built-in data quality validation powered by <a href="https://github.com/sodadata/soda-core" target="_blank">Soda Core</a> —
+            an open-source data quality library for data contracts and tests, built by the same team behind <a href="https://soda.io" target="_blank">Soda Cloud</a>.</p>
+            
+        <br/>
+            
+        <p>This project is <strong>open source</strong>. Feel free to fork it, break it, modify it, and more — 
+                <a href="https://github.com/santiviquez/soda-rss" target="_blank">View on GitHub</a>
+        </p>
+            
+        <p>Built by <strong>Santiago Viquez</strong> — 
+            <a href="https://www.linkedin.com/in/santiagoviquez/" target="_blank">LinkedIn</a> | 
+            <a href="https://twitter.com/santiviquez" target="_blank">Twitter</a>
+        </p>
     </div>
 </body>
 </html> 
