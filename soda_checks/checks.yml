@@ -9,3 +9,5 @@ checks for feed:
   - missing_count(link) = 0:
       missing values: ['<hr />', 'none', '']
   - duplicate_count(title) = 0
+  - invalid_count(Link) = 0:
+      valid regex: ^(https?://)?(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(/.*)?$

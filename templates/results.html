@@ -37,6 +37,18 @@
         {% endif %}
         
         <h2>Data Quality Checks</h2>
+        <p>We use <a href="https://github.com/sodadata/soda-core" target="_blank">Soda Core</a> to run data quality checks on the feed entries above.
+        These checks ensure that:
+        <li>
+            There are no missing values
+        </li>
+        <li>
+            There are no duplicate blog titles
+        </li>
+        <li>
+            Each link is valid and accessible
+        </li>
+        </p>
         {% if checks %}
         <div class="checks-summary">
             {% for check in checks %}

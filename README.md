@@ -37,7 +37,7 @@ FeedSanity is a minimal, educational RSS reader with built-in data quality valid
    ```bash
    uvicorn main:app --reload
    ```
-5. Open your browser to [http://localhost:8000](http://localhost:8000)
+5. Open your browser to [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Project Structure
 ```
