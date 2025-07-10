@@ -1,6 +1,6 @@
 # FeedSanity
 
-FeedSanity is a minimal, educational RSS reader with built-in data quality validation using Soda Core. It is backend-rendered using FastAPI, Python, and HTML (Jinja2 templates) — no JavaScript frameworks or frontend build tools. Check a live version at: [feedsanity.onrender.com](https://feedsanity.onrender.com/)
+FeedSanity is a minimal, educational RSS reader with built-in data quality validation using Soda Core. It is backend-rendered using FastAPI, Python, and HTML (Jinja2 templates) — no JavaScript frameworks or frontend build tools. Check a live version at: [feedsanity.santiviquez.com](https://feedsanity.santiviquez.com/)
 
 
 ![Screen Recording 2025-07-09 at 14 29 46](https://github.com/user-attachments/assets/91d80186-3059-4a25-953f-b689bce5ad88)
